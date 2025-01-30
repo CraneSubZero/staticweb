@@ -6,124 +6,144 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.8;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    line-height: 1.6;
     background-color: #f4f4f9;
-    color: #333;
     text-align: center; /* Center all text globally */
-    margin: 0 auto;
-    padding: 0 20px; /* Add side padding for mobile responsiveness */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Section */
+header {
+    background: url('mountainview.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-attachment: fixed; /* Creates a parallax effect */
+    color: #fff;
+    text-align: center;
+    padding: 120px 15px;
+    position: relative;
+}
+
+/* Header Logo */
+.logo {
+    width: 300px;  /* Adjust the width as needed */
+    height: 250px; /* Make the height the same as width for a perfect circle */
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+    border-radius: 50%; /* Makes the logo circular */
+    margin-bottom: -75px; /* Optional: add spacing below the logo */
+}
+
+/* Add an overlay for better text visibility */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+}
+
+/* Ensure text appears above overlay */
+.header-text {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.5rem;
+    margin: 0;
 }
 
 /* Navbar */
 nav {
-    background: #333;
-    padding: 15px 0;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    padding: 0;
+    padding: 10px 0;
     margin: 0;
 }
 
 nav ul li {
-    margin: 0 20px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #fff;
+    color: #333;
     font-size: 1rem;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #4CAF50; /* Add hover effect */
-}
-
-/* Header Section */
-header {
-    background: #4CAF50;
-    color: #fff;
-    padding: 30px 15px;
-    text-align: center;
-}
-
-/* Header Logo */
-.logo {
-    width: 200px;  /* Adjust the width as needed */
-    height: 150px; /* Make the height the same as width for a perfect circle */
-    object-fit: cover; /* Ensures the image fills the circle without distortion */
-    border-radius: 50%; /* Makes the logo circular */
-    margin-bottom: 10px; /* Optional: add spacing below the logo */
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2rem;
-    margin: 0;
+    color: #4CAF50;
 }
 
 /* Section Styles */
-.section {
-    padding: 40px 0;
-    max-width: 800px; /* Restrict width for better readability */
-    margin: 0 auto; /* Center sections */
+section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
 }
 
-.section h2 {
-    font-size: 2rem;
+section h2 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
     color: #4CAF50;
 }
 
-.section p {
+section p, section ul {
     font-size: 1.1rem;
     margin-bottom: 15px;
     line-height: 1.8;
 }
 
-.section ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
+section ul {
+    list-style: disc inside;
+    padding-left: 20px;
 }
 
-.section ul li {
+section ul li {
     margin: 10px 0;
-    font-size: 1.1rem;
 }
 
 /* Gallery */
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 15px;
     margin-top: 20px;
 }
 
 .gallery img {
-    width: 350px;
+    width: 100%;
     height: 200px;
     object-fit: cover;
-    border: 2px solid #ccc;
     border-radius: 8px;
 }
 
-/* Contact Section */
+/* Footer */
 footer {
     background: #333;
     color: #fff;
@@ -133,4 +153,56 @@ footer {
 
 footer p {
     margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 80px 15px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Center the Google Map */
+.mapouter {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.gmap_canvas {
+    width: 600px;
+    height: 400px;
+}
+
+.gmap_iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
